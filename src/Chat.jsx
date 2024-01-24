@@ -37,17 +37,16 @@ function Chat() {
 
   function showOnlinePeople(peopleArray) {
     const people = {};
-    peopleArray.forEach(({ userId, userName }) => {
-      people[userId] = userName;
+    peopleArray.forEach((userInfo) => {
+      people[userInfo?.userId] = userInfo?.userName;
     });
     setOnlinePeople(people);
-    console.log("onlinepeople--->", people);
   }
 
   function handleMessage(ev) {
     const messageData = JSON.parse(ev.data);
     console.log({ ev, messageData });
-    if ("online" in messageData) {
+    if (messageData["online"]) {
       showOnlinePeople(messageData.online);
     } else {
       setMessages((prev) => [
@@ -133,14 +132,23 @@ function Chat() {
   const onlinePeopleExlUser = { ...onlinePeople };
   delete onlinePeopleExlUser[id];
   const messageWithoutDups = uniqBy(messages, "_id");
-
+  // console.log("onlinePeopleExlUser==================> ", onlinePeopleExlUser);
   return (
     <div className="main-chat">
       <div className="left-chat">
         <div className="app-title">
-          <AiOutlineWechat /> MernChat
-          {Object.keys(onlinePeopleExlUser).map((userId) => (
-            <div className="user-icon">
+          <div className="header-div">
+            <AiOutlineWechat /> MernChat
+            <div className="logout-div">
+              <FaUserCheck />
+              <span className="log-icon">{userName}</span>
+              <button onClick={logout} className="log-out">
+                Logout
+              </button>
+            </div>
+          </div>
+          <div>
+            {Object.keys(onlinePeopleExlUser).map((userId, index) => (
               <Person
                 key={userId}
                 id={userId}
@@ -149,10 +157,10 @@ function Chat() {
                 onClick={() => setSelectedUserId(userId)}
                 selected={userId === selectedUserId}
               />
-            </div>
-          ))}
-          {Object.keys(offlinePeople).map((userId) => (
-            <div className="user-icon">
+            ))}
+          </div>
+          <div>
+            {Object.keys(offlinePeople).map((userId, index) => (
               <Person
                 key={userId}
                 id={userId}
@@ -161,15 +169,8 @@ function Chat() {
                 onClick={() => setSelectedUserId(userId)}
                 selected={userId === selectedUserId}
               />
-            </div>
-          ))}
-        </div>
-        <div className="logout-div">
-          <FaUserCheck />
-          <span className="log-icon">{userName}</span>
-          <button onClick={logout} className="log-out">
-            Logout
-          </button>
+            ))}
+          </div>
         </div>
       </div>
       <div className="center-chat">
@@ -186,12 +187,13 @@ function Chat() {
             <div className="relative">
               <div className="over-flow">
                 {messageWithoutDups.map((message) => (
-                  <div
+                  <div key={message._id} className={(message.sender ===id ? "text-right" : "text-left")}>
+                  {/* <div
                     key={message._id}
                     className={
-                      message.sender === id ? "text-right" : "text-left"
+                     (message.sender === id ? "text-right" : "text-left") 
                     }
-                  >
+                  > */}
                     <div
                       className={
                         "inline-block " + message.sender === id
