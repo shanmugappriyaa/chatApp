@@ -1,0 +1,195 @@
+/* @tailwind  base;
+@tailwind components;
+@tailwind utilities;   */
+
+.login-screen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: azure;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+.login-btn {
+  background-color: blue;
+  color: white;
+  border: 1px solid wheat;
+  padding: 2px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.login-user {
+  padding: 2px;
+  margin: 4px;
+}
+.login-button {
+  border: none;
+}
+.main-chat {
+  display: flex;
+  height: 100vh;
+}
+.left-chat {
+  background-color: whitesmoke;
+  flex: 3;
+  padding-left: 4px;
+  padding-top: 4px;
+  margin-bottom: 4px;
+}
+.center-chat {
+  background-color: skyblue;
+  flex: 9;
+}
+.chat-input {
+  background-color: white;
+  padding: 2px;
+  border: 2px solid white;
+  flex-grow: 1;
+  border-radius: 2px;
+}
+.chat-div {
+  display: flex;
+  padding: 2px;
+  gap: 3px;
+  flex-grow: 1;
+}
+.send-button {
+  background-color: blue;
+  color: white;
+  border: 2px solid blue;
+  padding: 2px;
+  border-radius: 2px;
+}
+.cen-chat {
+  flex-grow: 1;
+}
+.app-title {
+  color: blue;
+  font-weight: bold;
+  display: flex;
+  gap: 2px;
+}
+.avatar {
+  /* border: 1px solid orange; */
+  height: 8px;
+  width: 8px;
+  /* background-color: red; */
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 9999px;
+}
+.user-icon {
+  border-bottom: gray;
+  padding: 2px;
+  gap: 2px;
+  display: flex;
+  align-items: center;
+}
+.ava-icon {
+  text-align: center;
+  width: 100%;
+  color: wheat;
+  opacity: 70;
+}
+.message-text {
+  color: gray;
+}
+.message-center {
+  display: flex;
+  height: 100vh;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+.over-flow {
+  overflow-y: scroll;
+  position: absolute;
+  top: 0;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+}
+.inline-block {
+  display: inline-block;
+  padding: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border: 1px solid;
+  text-align: left;
+  border-radius: 6px;
+}
+.relative {
+  position: relative;
+  height: 100%;
+}
+.online-green {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: green;
+  bottom: 0;
+  right: 0;
+  border-radius: 9999px;
+  border-color: white;
+}
+.p1 {
+  width: 1px;
+  background-color: rgb(201, 201, 229);
+  height: 12px;
+}
+.p2 {
+  display: flex;
+  gap: 2px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  align-items: center;
+}
+.online-gray {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  bottom: 0;
+  right: 0;
+  border-radius: 9999px;
+  border-color: white;
+}
+.log-out {
+  font-size: small;
+  color: gray;
+  background-color: lightblue;
+  padding: 1px 2px 1px 2px;
+  border-radius: 0.125rem;
+}
+.logout-div {
+  padding: 2px;
+  text-align: center;
+}
+.log-icon {
+  margin-right: 2px;
+  font-size: small;
+  color: gray;
+  display: flex;
+  align-items: center;
+}
+.file-button {
+  color: #0a0a0a;
+  background-color: lightblue;
+  border: 2px solid lightblue;
+  padding: 2px;
+  border-radius: 2px;
+}
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  border: 2px;
+}
+.blu {
+  background-color: rgb(199, 199, 231);
+}
