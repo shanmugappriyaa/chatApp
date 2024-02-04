@@ -5,9 +5,11 @@ import { AiOutlineWechat } from "react-icons/ai";
 import { IoMdAttach } from "react-icons/io";
 import { FaUserCheck } from "react-icons/fa6";
 import { UserContext } from "../src/userContext";
-import { uniqBy } from "lodash";
+import { uniqBy, values } from "lodash";
 import axios from "axios";
 import Person from "./Persons";
+import moment from "moment";
+
 function Chat() {
   const [ws, setWs] = useState(null);
   const [onlinePeople, setOnlinePeople] = useState({});
@@ -48,11 +50,16 @@ function Chat() {
     console.log({ ev, messageData });
     if (messageData["online"]) {
       showOnlinePeople(messageData.online);
-    } else {
-      setMessages((prev) => [
-        ...prev,
-        { isOur: false, text: messageData.text },
-      ]);
+    } else if ("text" in messageData) {
+      console.log(
+        "sender---------> ",
+        messageData.sender,
+        selectedUserId,
+        messageData.sender === selectedUserId
+      );
+      if (messageData.sender === selectedUserId) {
+        setMessages((prev) => [...prev, { ...messageData }]);
+      }
     }
   }
 
@@ -129,10 +136,12 @@ function Chat() {
       setUserName(null);
     });
   }
+
   const onlinePeopleExlUser = { ...onlinePeople };
   delete onlinePeopleExlUser[id];
   const messageWithoutDups = uniqBy(messages, "_id");
-  // console.log("onlinePeopleExlUser==================> ", onlinePeopleExlUser);
+  console.log("messageWithoutDups==================> ", messageWithoutDups);
+  console.log("messages==================> ", messages);
   return (
     <div className="main-chat">
       <div className="left-chat">
@@ -184,44 +193,21 @@ function Chat() {
             </div>
           )}
           {!!selectedUserId && (
-            <div className="relative">
-              <div className="over-flow">
-                {messageWithoutDups.map((message) => (
-                  <div key={message._id} className={(message.sender ===id ? "text-right" : "text-left")}>
-                  {/* <div
-                    key={message._id}
-                    className={
-                     (message.sender === id ? "text-right" : "text-left") 
-                    }
-                  > */}
-                    <div
-                      className={
-                        "inline-block " + message.sender === id
-                          ? "bg-blue"
-                          : " bg-white"
-                      }
-                    >
-                      {/* sender:{message.sender} <br />
-        my id:{id} <br /> */}
-                      {message.text}
-                      {message.file && (
-                        <div>
-                          <a
-                            target="_blank"
-                            className="file-upload"
-                            href={
-                              axios.defaults.baseURL + "/uploads" + message.file
-                            }
-                          >
-                            {message.file}
-                          </a>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-                <div ref={divUnderMessages}> </div>
-              </div>
+            // <div className="relative">
+            //   <div className="over-flow">
+
+            //     <div ref={divUnderMessages}> </div>
+            //   </div>
+            // </div>
+            <div>
+              {messageWithoutDups.map((message) => (
+                <div
+                  key={message._id}
+                  className={message.sender === id ? "text-right" : "text-left"}
+                >
+                  <div className="msg">{message.text}</div>
+                </div>
+              ))}
             </div>
           )}
         </div>

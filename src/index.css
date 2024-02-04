@@ -5,9 +5,19 @@
 .login-screen {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  background-color: azure;
+  justify-content: flex-end;
 }
+
+.login-section{
+  max-height: 20vh !important;
+  background: white;
+}
+
+.login-bg{
+  background-color: #0DCF88;
+  /* background-image: linear-gradient(to right, rgba(109, 179, 242, .6), rgba(109, 179, 242, .6)), url(./assets/chat_vector.png); */
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -43,6 +53,7 @@
   background-color: rgb(217, 236, 244);
   flex: 9;
   position: relative;
+  padding: 12px;
 }
 .chat-input {
   background-color: white;
@@ -172,7 +183,7 @@
   padding: 1px 2px 1px 2px;
   border-radius: 0.125rem;
 }
-.header-div{
+.header-div {
   display: flex;
 }
 .logout-div {
@@ -206,4 +217,22 @@
 }
 .blu {
   background-color: rgb(199, 199, 231);
+}
+
+.text-left {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.text-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.msg {
+  background-color: aliceblue;
+  padding: 6px;
+  border-radius: 5px;
 }
