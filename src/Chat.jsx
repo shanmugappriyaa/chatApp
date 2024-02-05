@@ -11,6 +11,10 @@ import Person from "./Persons";
 import moment from "moment";
 
 function Chat() {
+  const socketPath =
+    process.env.NODE_ENV === "development"
+      ? "ws://localhost:8000"
+      : "ws://shan-chat.onrender.com";
   const [ws, setWs] = useState(null);
   const [onlinePeople, setOnlinePeople] = useState({});
   const [selectedUserId, setSelectedUserId] = useState(null);
@@ -26,7 +30,7 @@ function Chat() {
   }, [selectedUserId]);
 
   function connectToWs() {
-    const ws = new WebSocket("ws://localhost:8000");
+    const ws = new WebSocket(socketPath);
     setWs(ws);
     ws.addEventListener("message", handleMessage);
     ws.addEventListener("close", () => {

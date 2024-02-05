@@ -4,7 +4,9 @@ import Routes from "./Routes";
 
 
 function App() {
-  axios.defaults.baseURL = "http://localhost:8000/";
+  const base_url =
+  process.env.NODE_ENV === "development" ? "http://localhost:8000/" : "https://shan-chat.onrender.com/";
+  axios.defaults.baseURL = base_url;
   axios.defaults.withCredentials = true;
   return (
     <UserContextProvider>
