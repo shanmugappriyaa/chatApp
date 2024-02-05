@@ -14,7 +14,7 @@ function Chat() {
   const socketPath =
     process.env.NODE_ENV === "development"
       ? "ws://localhost:8000"
-      : "ws://shan-chat.onrender.com";
+      : "wss://shan-chat.onrender.com";
   const [ws, setWs] = useState(null);
   const [onlinePeople, setOnlinePeople] = useState({});
   const [selectedUserId, setSelectedUserId] = useState(null);
