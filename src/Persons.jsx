@@ -10,8 +10,8 @@ function Persons({ id, userName, onClick, selected, online }) {
     >
       {selected && <div className="p1"> </div>}
       <div className="p2">
-        <Avatar online={online} userName={userName} userId={id} />
-        <span>{userName}</span>
+        <Avatar online={online} userName={userName.toString()?.toUpperCase()} userId={id} />
+        <span className="ms-3 text-secondary">{userName.toString()?.toUpperCase()}</span>
       </div>
     </div>
   );

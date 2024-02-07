@@ -151,11 +151,14 @@ function Chat() {
       <div className="left-chat">
         <div className="app-title">
           <div className="header-div">
-            <AiOutlineWechat /> MernChat
+            <AiOutlineWechat />
+            <label className="text-primary fw-bold">MERN CHAT</label>
             <div className="logout-div">
               <FaUserCheck />
-              <span className="log-icon">{userName}</span>
-              <button onClick={logout} className="log-out">
+              <span className="log-icon mx-2">
+                {userName.toString()?.toUpperCase()}
+              </span>
+              <button onClick={logout} className="btn btn-danger">
                 Logout
               </button>
             </div>

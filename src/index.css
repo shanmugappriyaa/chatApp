@@ -8,13 +8,13 @@
   justify-content: flex-end;
 }
 
-.login-section{
+.login-section {
   max-height: 20vh !important;
   background: white;
 }
 
-.login-bg{
-  background-color: #0DCF88;
+.login-bg {
+  background-color: #0dcf88;
   /* background-image: linear-gradient(to right, rgba(109, 179, 242, .6), rgba(109, 179, 242, .6)), url(./assets/chat_vector.png); */
 }
 
@@ -43,17 +43,19 @@
 }
 .left-chat {
   background-color: whitesmoke;
-  flex: 3;
+  flex: 4;
   padding-left: 4px;
   padding-top: 4px;
+  padding-right: 4px;
   margin-bottom: 4px;
   position: relative;
 }
 .center-chat {
   background-color: rgb(217, 236, 244);
-  flex: 9;
+  flex: 8;
   position: relative;
   padding: 12px;
+  overflow: hidden;
 }
 .chat-input {
   background-color: white;
@@ -64,6 +66,7 @@
 }
 .chat-div {
   display: flex;
+  max-width: 98%;
   padding: 2px;
   gap: 3px;
   flex-grow: 1;
@@ -80,6 +83,9 @@
 }
 .cen-chat {
   flex-grow: 1;
+  overflow: auto;
+  max-height: 95%;
+  padding-bottom: 24px;
 }
 .app-title {
   color: blue;
@@ -90,9 +96,9 @@
 }
 .avatar {
   /* border: 1px solid orange; */
-  height: 8px;
-  width: 8px;
-  /* background-color: red; */
+  height: 50px;
+  width: 50px;
+  background-color: orange;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -185,11 +191,13 @@
 }
 .header-div {
   display: flex;
+  align-items: center;
 }
 .logout-div {
   bottom: 24px;
   padding: 2px;
-  text-align: center;
+  justify-content: flex-end;
+  align-items: center;
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -235,4 +243,10 @@
   background-color: aliceblue;
   padding: 6px;
   border-radius: 5px;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  /* background: rgba(0, 0, 0, 0.5); */
 }
