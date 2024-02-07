@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { UserContext } from "./userContext";
+import { IoIosChatboxes } from "react-icons/io";
 
 function LoginOrRegister() {
   const [name, setName] = useState("");
@@ -77,7 +78,23 @@ function LoginOrRegister() {
             </form>
           </div>
         </div>
-        <div className="col-12 max-vh-20"></div>
+        <div className="col-12 max-vh-20 d-flex">
+          <div className="col-6 d-flex flex-column align-items-center">
+            <IoIosChatboxes className="chat-image" />
+            <label className="text-white mt-3">Stay connect with your loved one</label>
+          </div>
+          <div className="col-6 d-flex flex-column align-items-end">
+            <h1 className="text-white fw-bold">
+              {" "}
+              Engage and retain with dynamic conversations
+            </h1>
+            <label className="text-white">
+              Power custom in-app communication with Shan-Chat's reliable chat
+              API. Drive engagement, retention and conversions with the most
+              feature-rich and scalable chat platform for web and mobile apps.
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   );

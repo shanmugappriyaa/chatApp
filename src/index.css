@@ -107,10 +107,10 @@
 }
 .user-icon {
   border-bottom: gray;
-  padding: 2px;
-  gap: 2px;
+  /* padding: 2px;
+  gap: 2px; */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .ava-icon {
   text-align: center;
@@ -224,7 +224,7 @@
   border: 2px;
 }
 .blu {
-  background-color: rgb(199, 199, 231);
+  background-color: rgb(230, 244, 246);
 }
 
 .text-left {
@@ -249,4 +249,10 @@
   width: 12px;
   height: 12px;
   /* background: rgba(0, 0, 0, 0.5); */
+}
+
+.chat-image{
+  color: white;
+  width: 100px;
+  height: 100px;
 }

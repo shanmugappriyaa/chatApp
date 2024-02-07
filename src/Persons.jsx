@@ -6,13 +6,22 @@ function Persons({ id, userName, onClick, selected, online }) {
     <div
       key={id}
       onClick={() => onClick(id)}
-      className={"user-icon " + (selected ? "blu" : "")}
+      className={"user-icon card border-0 " + (selected ? "blu" : "")}
     >
-      {selected && <div className="p1"> </div>}
-      <div className="p2">
-        <Avatar online={online} userName={userName.toString()?.toUpperCase()} userId={id} />
-        <span className="ms-3 text-secondary">{userName.toString()?.toUpperCase()}</span>
-      </div>
+        <div className="card-body">
+          {selected && <div className="p1"> </div>}
+          <div className="p2">
+            <Avatar
+              online={online}
+              userName={userName.toString()?.toUpperCase()}
+              userId={id}
+            />
+            <span className="ms-3 text-secondary">
+              {userName.toString()?.toUpperCase()}
+            </span>
+          </div>
+        </div>
+      
     </div>
   );
 }
