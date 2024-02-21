@@ -226,10 +226,16 @@ function Chat() {
                   <div className="msg">{message.text}
                   {message.file && (
                         <div className="">
-                          <a target="_blank" className="flex items-center gap-1 border-b" href={axios.defaults.baseURL + 'uploads/' + message.file}>
+                          {/* <a target="_blank" className="flex items-center gap-1 border-b" href={axios.defaults.baseURL + 'uploads/' + message.file}>
                            
                             {message.file}
-                          </a>
+                          </a> */}
+                          <a 
+  target="_blank" 
+  className="flex items-center gap-1 border-b" 
+  href={`https://res.cloudinary.com/dqnpuy2bs/image/upload/${message.file}`}>
+  {message.file}
+</a>
                         </div>
                       )}</div>
                 </div>
