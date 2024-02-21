@@ -6,6 +6,8 @@
 **Private Messaging:** Users can have private conversations with each other.
 **Online Status**: Users can see the online status of other users.
 **Message History:** Chat history is maintained, allowing users to view previous conversations.
+Sample username :raja 
+password :123
 
 **Frontend:**
 HTML
