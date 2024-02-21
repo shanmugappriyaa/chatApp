@@ -216,7 +216,14 @@
   border: 2px solid lightblue;
   padding: 2px;
   border-radius: 2px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
 }
+.hidden {
+  visibility: hidden;
+}
+
 .file-upload {
   display: flex;
   align-items: center;
@@ -251,7 +258,7 @@
   /* background: rgba(0, 0, 0, 0.5); */
 }
 
-.chat-image{
+.chat-image {
   color: white;
   width: 100px;
   height: 100px;
