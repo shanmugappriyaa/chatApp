@@ -221,7 +221,7 @@
   cursor: pointer;
 }
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .file-upload {
