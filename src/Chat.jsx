@@ -9,9 +9,8 @@ import { uniqBy, values } from "lodash";
 import axios from "axios";
 import Person from "./Persons";
 
-
 function Chat() {
-  const   socketPath =
+  const socketPath =
     process.env.NODE_ENV === "development"
       ? "ws://localhost:8000"
       : "wss://shan-chat.onrender.com";
@@ -22,10 +21,10 @@ function Chat() {
   const [newMessageText, setNewMessageText] = useState("");
   const [messages, setMessages] = useState([]);
   const [offlinePeople, setOfflinePeolple] = useState({});
-  const fileInput = useRef(null)
+  const fileInput = useRef(null);
   const handleClick = () => {
-    fileInput.current.click()
-}
+    fileInput.current.click();
+  };
   const divUnderMessages = useRef();
 
   useEffect(() => {
@@ -85,7 +84,7 @@ function Chat() {
       });
     } else {
       setNewMessageText("");
-      setMessages(prev =>( [
+      setMessages((prev) => [
         ...prev,
         {
           text: newMessageText,
@@ -93,26 +92,24 @@ function Chat() {
           recipient: selectedUserId,
           _id: Date.now(),
         },
-      ]));
+      ]);
     }
   }
   function sendFile(ev) {
     const reader = new FileReader();
-    reader.onload = function(){
-      let output = document.getElementById('blah');
+    reader.onload = function () {
+      let output = document.getElementById("blah");
       output.src = reader.result;
-    }
-    if(ev.target.files[0]){
+    };
+    if (ev.target.files[0]) {
       reader.readAsDataURL(ev.target.files[0]);
       reader.onload = () => {
         sendMessage(null, {
           name: ev.target.files[0].name,
           data: reader.result,
         });
+      };
     }
-  
-   
-    };
   }
   useEffect(() => {
     const dive = divUnderMessages.current;
@@ -223,21 +220,24 @@ function Chat() {
                   key={message._id}
                   className={message.sender === id ? "text-right" : "text-left"}
                 >
-                  <div className="msg">{message.text}
-                  {message.file && (
-                        <div className="">
-                          {/* <a target="_blank" className="flex items-center gap-1 border-b" href={axios.defaults.baseURL + 'uploads/' + message.file}>
+                  <div className="msg">
+                    {message.text}
+                    {message.file && (
+                      <div className="">
+                        {/* <a target="_blank" className="flex items-center gap-1 border-b" href={axios.defaults.baseURL + 'uploads/' + message.file}>
                            
                             {message.file}
                           </a> */}
-                          <a 
-  target="_blank" 
-  className="flex items-center gap-1 border-b" 
-  href={`https://res.cloudinary.com/dqnpuy2bs/image/upload/${message.file}`}>
-  {message.file}
-</a>
-                        </div>
-                      )}</div>
+                        <a
+                          target="_blank"
+                          className="flex items-center gap-1 border-b"
+                          href={`https://res.cloudinary.com/dqnpuy2bs/image/upload/${message.file}`}
+                        >
+                          {message.file}
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -254,10 +254,18 @@ function Chat() {
             />
             {/* <button type="button" className="file-button">
              
-            </button> */} 
-             <IoMdAttach className="file-button mx-2" onClick={() => handleClick()}/>
-            <input type="file" className="hidden" onChange={sendFile} ref={fileInput}  />
-            <button type="submit" className="send-button">
+            </button> */}
+            {/* <IoMdAttach
+              className="file-button mx-2"
+              onClick={() => handleClick()}
+            /> */}
+            <input
+              type="file"
+              className="hidden"
+              onChange={sendFile}
+              ref={fileInput}
+            />
+            <button type="submit" className="mx-2 send-button">
               <IoSendSharp />
             </button>
           </form>
