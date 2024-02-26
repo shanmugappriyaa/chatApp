@@ -1,6 +1,7 @@
 import axios from "axios";
 import { UserContextProvider } from "./userContext";
 import Routes from "./Routes";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function App() {
